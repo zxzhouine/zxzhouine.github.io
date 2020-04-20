@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Lecture Notes for CS61B">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS61B Note">
+<meta property="og:url" content="http://yoursite.com/2020/04/19/CS61B_Note/index.html">
+<meta property="og:site_name" content="zzz&#39;s blog">
+<meta property="og:description" content="Lecture Notes for CS61B">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-20T04:53:08.000Z">
+<meta property="article:modified_time" content="2020-04-20T05:11:51.427Z">
+<meta property="article:author" content="Xander">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/19/CS61B_Note/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>CS61B Note | zzz's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zzz's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/19/CS61B_Note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xander">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zzz's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CS61B Note
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-04-19 21:53:08 / Modified: 22:11:51" itemprop="dateCreated datePublished" datetime="2020-04-19T21:53:08-07:00">2020-04-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Lecture Notes for CS61B</p>
+<a id="more"></a>
+
+<h3 id="Lecture-1"><a href="#Lecture-1" class="headerlink" title="Lecture 1"></a>Lecture 1</h3><h4 id="Object-oriented-programming"><a href="#Object-oriented-programming" class="headerlink" title="Object-oriented programming"></a>Object-oriented programming</h4><ul>
+<li>Object: An object is a repository of data.</li>
+<li>Class : A class is a type of object.</li>
+<li>Method : A procedure or function that operates on an object or a class.</li>
+<li>Inheritance : A class may inherit properties from a more general class.</li>
+<li>Polymorphism : The ability to have one method call work on several different classes of objects.</li>
+</ul>
+<p>The one thing that truly <strong>distinguishes</strong> object-oriented languages from procedural languages (C, Fortran, Basic, Pascal) is <strong>polymorphism</strong>.</p>
+<h4 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h4><ol>
+<li>Store number     </li>
+<li>Reference to object</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"Hello,world"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// The classes are "HelloWorld", "String", and "System".</span></span><br><span class="line"><span class="comment">// The objects are "args", "System.out", and the string "Hello, world".</span></span><br><span class="line"><span class="comment">// The methods are "main" and "println".</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Lecture-2"><a href="#Lecture-2" class="headerlink" title="Lecture 2"></a>Lecture 2</h3><h4 id="Constructor"><a href="#Constructor" class="headerlink" title="Constructor"></a>Constructor</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="keyword">new</span> String();</span><br><span class="line">String s2 = s; 		 <span class="comment">// s and s2 reference to the same object</span></span><br><span class="line">s2 = <span class="keyword">new</span> String(s) <span class="comment">// Construct a copy of object; store reference in s2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s2 = s.toUppercase();				 <span class="comment">//  s -&gt; "Yow!", s2 -&gt; "YOW!"</span></span><br><span class="line">String s3 = s2.concat(<span class="string">"!"</span>);  <span class="comment">// s3 -&gt; "Yow!!"</span></span><br><span class="line">String s4 = <span class="string">"*"</span>.concat(s2).concat(<span class="string">"*"</span>); <span class="comment">// s4 -&gt; "*YOW!*"</span></span><br><span class="line"><span class="comment">// Java Strings are immutable.</span></span><br><span class="line"><span class="comment">// If you want to change a String obejct, you need to create a brand new String object</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="I-O"><a href="#I-O" class="headerlink" title="I/O"></a>I/O</h4><p><strong>System.out</strong> is a <strong>PrintStream</strong> object that outputs to the screen.</p>
+<p><strong>System.in</strong> is an <strong>InputStream</strong> object that reads from the keyboard.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SimpleIO</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arg)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">    BufferedReader keybd = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">    System.out.println(keybd.readline());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">URL u = <span class="keyword">new</span> URL(<span class="string">"http://www.whitehouse.gov/"</span>)</span><br><span class="line">InputStream ins = u.openStream();</span><br><span class="line">InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(ins);</span><br><span class="line">BufferedReader whitehouse = <span class="keyword">new</span> BufferedReader(isr);</span><br><span class="line">System.out.println(whiteHouse.readLine());</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Lecture-3"><a href="#Lecture-3" class="headerlink" title="Lecture 3"></a>Lecture 3</h3><h4 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h4><p><strong>Fields</strong> in objects are also known as <code>instance variable</code></p>
+<h4 id="Constructors"><a href="#Constructors" class="headerlink" title="Constructors"></a>Constructors</h4><p>If you write your own Human constructor, even if it takes parameters, the default constructor goes away.</p>
+<p>If you want to have the default constructor and another constructor, you must define both explicitly.</p>
+<h4 id="The-“this”-Keyword"><a href="#The-“this”-Keyword" class="headerlink" title="The “this” Keyword"></a>The “this” Keyword</h4><p>如果object的field跟parameter一样, 需要区别两者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">	String name = <span class="string">"Tom"</span>;</span><br><span class="line">	<span class="keyword">this</span>.age    = age;</span><br><span class="line">	<span class="keyword">this</span>.name   = name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="The-“static”-Keywork"><a href="#The-“static”-Keywork" class="headerlink" title="The “static” Keywork"></a>The “static” Keywork</h4><p>A <strong>static field</strong> is a single variable shared by a whole class of objects.</p>
+<p>Static fields are also called <em>class_variables</em>.</p>
+<p><strong>System.in</strong> and <strong>System.out</strong> are examples of static fields.</p>
+<h3 id="Lecture-4"><a href="#Lecture-4" class="headerlink" title="Lecture 4"></a>Lecture 4</h3><h4 id="Primitive-types"><a href="#Primitive-types" class="headerlink" title="Primitive types"></a>Primitive types</h4><ul>
+<li><p>Math Class</p>
+<p>x = Math.abs(y)</p>
+</li>
+<li><p>the Integer Class</p>
+<p>int x = Integer.parseInt(“1984”);</p>
+</li>
+<li><p>the Double Class</p>
+<p>double d = Double.parseDouble(“3.14”);</p>
+</li>
+</ul>
+<h4 id="Conditional"><a href="#Conditional" class="headerlink" title="Conditional"></a>Conditional</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(month)&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">		days = <span class="number">28</span>;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">	<span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">	<span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">	<span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">		days = <span class="number">30</span>;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		days = <span class="number">31</span>;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>“break” jumps to the end of the “switch” statement.</strong></p>
+<p>If you forgot a break statement, the flow of execution will continue right through past the next “case” clause.</p>
+<h3 id="Lecture-5"><a href="#Lecture-5" class="headerlink" title="Lecture 5"></a>Lecture 5</h3><h4 id="Arrays-amp-Multi-Dimensional-Arrays"><a href="#Arrays-amp-Multi-Dimensional-Arrays" class="headerlink" title="Arrays &amp; Multi-Dimensional Arrays"></a>Arrays &amp; Multi-Dimensional Arrays</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Definition</span></span><br><span class="line"><span class="keyword">char</span> [] c;</span><br><span class="line">c = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">4</span>];</span><br></pre></td></tr></table></figure>
+
+<p>A <em>two-dimensional_array</em> is an array of references to arrays.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[][] pascalTriangle(<span class="keyword">int</span> n) &#123;</span><br><span class="line">	<span class="keyword">int</span>[][] pt = <span class="keyword">new</span> <span class="keyword">int</span>[n][];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    pt[i] = <span class="keyword">new</span> <span class="keyword">int</span>[i+<span class="number">1</span>];</span><br><span class="line">    pt[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>When you declare a variable, you can also construct array entries by using initializers.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Human[] b = &#123;amanda, rishi, <span class="keyword">new</span> Human(<span class="string">"Paolo"</span>)&#125;;</span><br><span class="line"><span class="keyword">int</span>[][] c = &#123;&#123;<span class="number">7</span>,<span class="number">3</span>,<span class="number">2</span>&#125;,&#123;x&#125;,&#123;<span class="number">8</span>,<span class="number">5</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,&#123;y+z,<span class="number">3</span>&#125;&#125;;</span><br><span class="line"><span class="comment">// Outside of declarations, you need a more complicated notation</span></span><br><span class="line">d = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;<span class="number">3</span>,<span class="number">7</span>&#125;;</span><br><span class="line">f(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;);</span><br><span class="line"><span class="keyword">int</span>[] a, b, c; 		 <span class="comment">// a, b and c all reference arrays</span></span><br><span class="line"><span class="keyword">int</span> a[], b, c[][]; <span class="comment">// a is 1D; c is 2D; b is not a reference/array</span></span><br><span class="line"><span class="keyword">int</span>[] a, b[]; 		 <span class="comment">// a references a 1D array; b references a 2D array</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Lecture-6"><a href="#Lecture-6" class="headerlink" title="Lecture 6"></a>Lecture 6</h3><h4 id="Constants"><a href="#Constants" class="headerlink" title="Constants"></a>Constants</h4><p><strong>‘final’</strong> keyword is used to declare a value that can never be changed.</p>
+<h3 id="Lecture-7"><a href="#Lecture-7" class="headerlink" title="Lecture 7"></a>Lecture 7</h3><h4 id="Linked-Lists"><a href="#Linked-Lists" class="headerlink" title="Linked Lists"></a>Linked Lists</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Constructor</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ListNode</span><span class="params">(<span class="keyword">int</span> i, ListNode n)</span></span>&#123;</span><br><span class="line">  item = i;</span><br><span class="line">  next = n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ListNode</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">  <span class="keyword">this</span>(i,<span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Lecture-8"><a href="#Lecture-8" class="headerlink" title="Lecture 8"></a>Lecture 8</h3><h4 id="The-“public”-and-“private”-Keywords"><a href="#The-“public”-and-“private”-Keywords" class="headerlink" title="The “public” and “private” Keywords"></a>The “public” and “private” Keywords</h4><p>A <strong>private method or field</strong> is invisible and inacessible to other classes, and can be used only within the class in which the field or method is declared.</p>
+<p>The <strong>interface</strong> of a class is a set of prototypes for public methods plus descriptions of the methods’ behaviors.</p>
+<p>An <strong>Abstract Data Type</strong> is a class that has a well-defined interface, but its implementation details are firmly hidden from other classes.</p>
+<p>An invariant is a fact about a data structure that is always true, no matter what methods are called by external classes.</p>
+<h3 id="Lecture-9"><a href="#Lecture-9" class="headerlink" title="Lecture 9"></a>Lecture 9</h3><h4 id="Stack-and-Heap"><a href="#Stack-and-Heap" class="headerlink" title="Stack and Heap"></a>Stack and Heap</h4><p>The <strong>heap</strong> stores all objects, including all arrays, and all class variables.</p>
+<p>The <strong>stack</strong> stores all local variables, including all parameters.</p>
+<p>When a method is called, the JVM creates a <strong>stack</strong> frame that stores the parameters and local variables for that method.</p>
+<p>The <strong>java.lang</strong> library has a method “<strong>Thread.dumpStack</strong>“ the prints a list of the methods on the stack.</p>
+<h4 id="Parameter-Passing"><a href="#Parameter-Passing" class="headerlink" title="Parameter Passing"></a>Parameter Passing</h4><p>Java passes all parameters by <strong>value</strong>. This means that the method has <strong>copies</strong> of the actual parameters, and cannot change the originals. The copies reside in the method’s stack frame for the method. The method can change these copies, but the original values that were copied are not changed.</p>
+<h3 id="Lecture-10"><a href="#Lecture-10" class="headerlink" title="Lecture 10"></a>Lecture 10</h3><h4 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TailList</span> <span class="keyword">extends</span> <span class="title">SList</span></span>&#123;</span><br><span class="line">  <span class="comment">// The "head" and "size" fields are inherited from SList</span></span><br><span class="line">  <span class="keyword">private</span> SListNode tail;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>A <strong>subclass</strong> can modify or augment a superclass in at least three ways:</p>
+<ol>
+<li>It can declare new fields</li>
+<li>It can declare new methods</li>
+<li><strong>It can override old methods with new implementations</strong></li>
+</ol>
+<h4 id="Inheritance-and-Constructors"><a href="#Inheritance-and-Constructors" class="headerlink" title="Inheritance and Constructors"></a>Inheritance and Constructors</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">TailList</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">// SList() constrctors called automatically; set size = 0, head = null</span></span><br><span class="line">  tail = <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The zero-parameter SList() constructor is always called by default, regardless of the parameters passed to the TailList constructor.</p>
+<p>To change this default behavior, the TailList constructor can explicitly call any  constructor for its superclass by using the “super” keyword.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">TailList</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">  <span class="comment">// The call to "super()" must be the first statement in the constructor.</span></span><br><span class="line">  <span class="keyword">super</span>(x);</span><br><span class="line">  tail = <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Invoking-Overridden-Methods"><a href="#Invoking-Overridden-Methods" class="headerlink" title="Invoking Overridden Methods"></a>Invoking Overridden Methods</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertFront</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">  <span class="keyword">super</span>.insertFront(obj);</span><br><span class="line">  <span class="keyword">if</span> (size == <span class="number">1</span>)&#123;</span><br><span class="line">    tail = head;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Unlike superclass constructor, ordinary superclass method invocations need not be the first statement in a method.</p>
+<h4 id="The-“protect”-Keyword"><a href="#The-“protect”-Keyword" class="headerlink" title="The “protect” Keyword"></a>The “protect” Keyword</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SList</span></span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> SListNode head;</span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">int</span> size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>“protected”</strong>  is a level of protection somewhere between “public” and “private”. A “protected” field is visible to the declaring class and all its subclasses, but not to other class. “private” fields aren’t even visible to the subclasses.</p>
+<p>If “head” and “size” are declared private, the method TailList.insertFront can’t access them and won’t compile.</p>
+<h4 id="Class-Hierarchies"><a href="#Class-Hierarchies" class="headerlink" title="Class Hierarchies"></a>Class Hierarchies</h4><p>​      Object</p>
+<p>​      /           \</p>
+<p>String       Worker</p>
+<p>​                 /          \</p>
+<p>​            …                …</p>
+<p>Every class is a subclass of the <strong>Object</strong> class. That’s why the “item” field in each listnode is of type Object so that it can reference any object of any class.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SListNode</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> object item;</span><br><span class="line">	<span class="keyword">public</span> SListNode next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Dynamic-Method-Lookup"><a href="#Dynamic-Method-Lookup" class="headerlink" title="Dynamic Method Lookup"></a>Dynamic Method Lookup</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SList s = <span class="keyword">new</span> TailList();  <span class="comment">// Good</span></span><br><span class="line">TailList t = <span class="keyword">new</span> SList();  <span class="comment">// Compile-Time error</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Static type</strong>       : The type of a variable</p>
+<p><strong>Dynamic type</strong> : The class of the object the variable references.</p>
+<p>Java calls the method for the object’s dynamic type, regardless of the variable’s static type.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SList s = <span class="keyword">new</span> TailList();</span><br><span class="line">s.insertEnd(obj); <span class="comment">// Calls TailList.insertEnd()</span></span><br><span class="line">s = <span class="keyword">new</span> SList();</span><br><span class="line">s.insertEnd(obj); <span class="comment">// Calls SList.insertEnd()</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Subtleties-of-Inheritance"><a href="#Subtleties-of-Inheritance" class="headerlink" title="Subtleties of Inheritance"></a>Subtleties of Inheritance</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TailList t = <span class="keyword">new</span> TailList();</span><br><span class="line">t.eatTail();  <span class="comment">// Groovy</span></span><br><span class="line">SList s = <span class="keyword">new</span> TailList();</span><br><span class="line">s.eatTail();	<span class="comment">// Compile-time error</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Lecture-11"><a href="#Lecture-11" class="headerlink" title="Lecture 11"></a>Lecture 11</h3><h4 id="Equals"><a href="#Equals" class="headerlink" title="Equals()"></a>Equals()</h4><p>inherit from Object.equals(), to compare two reference</p>
+<p>Four different degrees of equality:</p>
+<ol>
+<li>Reference equality, ==</li>
+<li>Shallow structural equality. Two objects are “equals” if all their fields are ==</li>
+<li>Deep structural eauality. Two objects are “equals” if all their fields are “equals”. For example, two SLists that represent the same sequence of items (though the SListNodes may be different). 也就是说两个Linked-List一样, 只需要这两个Linked-List每个Node的值一样, 不需要完全一样的Node对应一样的值.</li>
+<li>Logical equality.<ul>
+<li>Two “Set” objects are “equals” if they contain the same elements, even if the underlying lists store the elements in different orders.</li>
+<li>The Fractions 1/3 and 2/6 are “equals”, even though their numerators</li>
+</ul>
+</li>
+</ol>
+<p><strong>Overriding doesn’t work if we change the signature of the original method, even just to change a parameter to a subclass</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object s = <span class="keyword">new</span> SList();</span><br><span class="line">s.equals(s);</span><br></pre></td></tr></table></figure>
+
+<p>will call Object.equals(), not SList.equals()</p>
+<h4 id="“for-each”-Loops"><a href="#“for-each”-Loops" class="headerlink" title="“for each” Loops"></a>“for each” Loops</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array = &#123;<span class="number">7</span>, <span class="number">12</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">9</span>&#125;;</span><br><span class="line"><span class="comment">// The type declaration must be in the "for" statement.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i : array)&#123;</span><br><span class="line">	System.out.print(i + <span class="string">" "</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h4><ol>
+<li><p><strong>Modular Testing</strong> : testing each method and class seperately.</p>
+<p>There are two types of test code for modular testing</p>
+<ul>
+<li><strong>test drivers</strong> : call the code, check results.</li>
+<li><strong>stubs</strong> : bits of code called by the code being tested</li>
+</ul>
+</li>
+<li><p><strong>Integration Testing</strong> : testing a set of methods / classes together</p>
+<p>Testing all components together</p>
+<ul>
+<li>define interfaces well</li>
+<li>Learn to use a debugger</li>
+</ul>
+</li>
+<li><p><strong>Result Verification</strong> : testing results for correctness, and testing data strcuture to ensure they still satisfy their invarient</p>
+<ul>
+<li><p><strong>Data Structure Integrity Checker</strong>. Inspect a data structure &amp; verify that all invariants are satisfied</p>
+</li>
+<li><p><strong>Algorithm result checker</strong>.  Assertion : code that tests an invariant on a result.</p>
+<p>assert x == 3; assert list.size == list.countLength():”wrong SList size : “ + list.size;</p>
+<p>Turn them on : java -ea</p>
+<p>​                   off : java -da (greater speed) never call assertion.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Lecture-12"><a href="#Lecture-12" class="headerlink" title="Lecture 12"></a>Lecture 12</h3><h4 id="Abstract-Class"><a href="#Abstract-Class" class="headerlink" title="Abstract Class"></a>Abstract Class</h4><p>an abstract class is a class whose sole purpose is to be extended.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> abstrct <span class="class"><span class="keyword">class</span> <span class="title">List</span></span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> <span class="keyword">int</span> size;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">length</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> size</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">insertFront</span><span class="params">(Object item)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SList</span> <span class="keyword">extends</span> <span class="title">List</span></span>&#123;</span><br><span class="line">	<span class="comment">// inherits the "size" field</span></span><br><span class="line">	<span class="keyword">protected</span> SListNode head;</span><br><span class="line">	<span class="comment">// inherits the "length" method</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertFront</span><span class="params">(Object item)</span></span>&#123;</span><br><span class="line">		head = <span class="keyword">new</span> SListNode(item, head);</span><br><span class="line">		size ++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">List myList = <span class="keyword">new</span> SList();</span><br><span class="line">myList.insertFront(obj);</span><br></pre></td></tr></table></figure>
+
+<p>A non-abstract class may never contain an abstract method, nor inherit one without providing an implementation.</p>
+<p><strong>An abstract class lets you define an interface 1) for multiple classes to share. 2) without defining any of them yet.</strong></p>
+<p><code>public void ListSorter(List l){...}</code></p>
+<h4 id="Java-Interfaces"><a href="#Java-Interfaces" class="headerlink" title="Java Interfaces"></a>Java Interfaces</h4><p>A java interface could not implement any methods, nor can it include any fields expect “final static” constants. It only contains method, prototypes and constants.</p>
+<p>The method prototypes in a Java interface may be declared without the “abstract” keyword.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Nukeable</span></span>&#123;</span><br><span class="line">	<span class="function">pulic <span class="keyword">void</span> <span class="title">nuke</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Comparable</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object o)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SList</span> <span class="keyword">extends</span> <span class="title">List</span> <span class="keyword">implements</span> <span class="title">Nukeable</span>, <span class="title">Comparable</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">nuke</span><span class="params">()</span></span>&#123;</span><br><span class="line">    head = <span class="keyword">null</span>;</span><br><span class="line">    size = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object o)</span></span>&#123;</span><br><span class="line">    [Return a number &lt; <span class="number">0</span> <span class="keyword">if</span> <span class="keyword">this</span> &lt; o,</span><br><span class="line">    									 <span class="number">0</span> <span class="keyword">if</span> <span class="keyword">this</span>.equals(o),</span><br><span class="line">    								 &gt; <span class="number">0</span> <span class="keyword">if</span> <span class="keyword">this</span> &gt; o]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Nukeable   n = <span class="keyword">new</span> SList();</span><br><span class="line">Comparable c = (Comparable) n;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Interfaces can be extended with subinterfaces. A subinterface can have multiple superinterfaces, so we can group several interfaces into one.</p>
+<p><code>public interface NukeAndCompare extends Nukeable, Comparable{}</code></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/18/vim-tutorial/" rel="prev" title="Vim Tutorial">
+      <i class="fa fa-chevron-left"></i> Vim Tutorial
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lecture-1"><span class="nav-number">1.</span> <span class="nav-text">Lecture 1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-oriented-programming"><span class="nav-number">1.1.</span> <span class="nav-text">Object-oriented programming</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Variable"><span class="nav-number">1.2.</span> <span class="nav-text">Variable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lecture-2"><span class="nav-number">2.</span> <span class="nav-text">Lecture 2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Constructor"><span class="nav-number">2.1.</span> <span class="nav-text">Constructor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method"><span class="nav-number">2.2.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#I-O"><span class="nav-number">2.3.</span> <span class="nav-text">I&#x2F;O</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lecture-3"><span class="nav-number">3.</span> <span class="nav-text">Lecture 3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Class"><span class="nav-number">3.1.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Constructors"><span class="nav-number">3.2.</span> <span class="nav-text">Constructors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-“this”-Keyword"><span class="nav-number">3.3.</span> <span class="nav-text">The “this” Keyword</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-“static”-Keywork"><span class="nav-number">3.4.</span> <span class="nav-text">The “static” Keywork</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lecture-4"><span class="nav-number">4.</span> <span class="nav-text">Lecture 4</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Primitive-types"><span class="nav-number">4.1.</span> <span class="nav-text">Primitive types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conditional"><span class="nav-number">4.2.</span> <span class="nav-text">Conditional</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lecture-5"><span class="nav-number">5.</span> <span class="nav-text">Lecture 5</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Arrays-amp-Multi-Dimensional-Arrays"><span class="nav-number">5.1.</span> <span class="nav-text">Arrays &amp; Multi-Dimensional Arrays</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lecture-6"><span class="nav-number">6.</span> <span class="nav-text">Lecture 6</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Constants"><span class="nav-number">6.1.</span> <span class="nav-text">Constants</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lecture-7"><span class="nav-number">7.</span> <span class="nav-text">Lecture 7</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linked-Lists"><span class="nav-number">7.1.</span> <span class="nav-text">Linked Lists</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lecture-8"><span class="nav-number">8.</span> <span class="nav-text">Lecture 8</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-“public”-and-“private”-Keywords"><span class="nav-number">8.1.</span> <span class="nav-text">The “public” and “private” Keywords</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lecture-9"><span class="nav-number">9.</span> <span class="nav-text">Lecture 9</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Stack-and-Heap"><span class="nav-number">9.1.</span> <span class="nav-text">Stack and Heap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Parameter-Passing"><span class="nav-number">9.2.</span> <span class="nav-text">Parameter Passing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lecture-10"><span class="nav-number">10.</span> <span class="nav-text">Lecture 10</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Inheritance"><span class="nav-number">10.1.</span> <span class="nav-text">Inheritance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inheritance-and-Constructors"><span class="nav-number">10.2.</span> <span class="nav-text">Inheritance and Constructors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Invoking-Overridden-Methods"><span class="nav-number">10.3.</span> <span class="nav-text">Invoking Overridden Methods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-“protect”-Keyword"><span class="nav-number">10.4.</span> <span class="nav-text">The “protect” Keyword</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Class-Hierarchies"><span class="nav-number">10.5.</span> <span class="nav-text">Class Hierarchies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dynamic-Method-Lookup"><span class="nav-number">10.6.</span> <span class="nav-text">Dynamic Method Lookup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Subtleties-of-Inheritance"><span class="nav-number">10.7.</span> <span class="nav-text">Subtleties of Inheritance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lecture-11"><span class="nav-number">11.</span> <span class="nav-text">Lecture 11</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Equals"><span class="nav-number">11.1.</span> <span class="nav-text">Equals()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#“for-each”-Loops"><span class="nav-number">11.2.</span> <span class="nav-text">“for each” Loops</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Testing"><span class="nav-number">11.3.</span> <span class="nav-text">Testing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lecture-12"><span class="nav-number">12.</span> <span class="nav-text">Lecture 12</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Abstract-Class"><span class="nav-number">12.1.</span> <span class="nav-text">Abstract Class</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-Interfaces"><span class="nav-number">12.2.</span> <span class="nav-text">Java Interfaces</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xander</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zxzhouine" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zxzhouine" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xander</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
